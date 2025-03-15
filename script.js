@@ -25,22 +25,30 @@ let progressInterval;
 
 // Load YouTube IFrame API
 function loadYouTubeAPI() {
-    // Create YouTube script tag dynamically to ensure proper loading
-    const tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    
-    console.log("Loading YouTube API...");
+    if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+        // If the API isn't loaded yet, wait for it
+        window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
+        console.log("Waiting for YouTube API to load...");
+    } else {
+        // If it's already loaded, initialize the player
+        onYouTubeIframeAPIReady();
+    }
 }
 
-// This function will be called automatically by YouTube API when ready
-window.onYouTubeIframeAPIReady = function() {
+// Initialize YouTube API
+function onYouTubeIframeAPIReady() {
     console.log("YouTube API Ready");
+    
+    // Make sure the player container exists
+    const playerContainer = document.getElementById('youtube-player');
+    if (!playerContainer) {
+        console.error("Player container not found!");
+        return;
+    }
     
     // Create the player
     player = new YT.Player('youtube-player', {
-        height: '180',
+        height: '180',  // Increased size so it's visible for debugging
         width: '320',
         playerVars: {
             'playsinline': 1,
@@ -64,12 +72,16 @@ function onPlayerReady(event) {
     isPlayerReady = true;
     volumeSlider.value = player.getVolume();
     
-    // Make player container more visible for debugging
-    const playerContainer = document.querySelector('.player-container');
-    if (playerContainer) {
-        playerContainer.style.opacity = '0.7';
+    // Make the player container visible but small
+    const playerElement = document.getElementById('youtube-player');
+    if (playerElement) {
+        playerElement.style.height = '90px';
+        playerElement.style.width = '160px';
+        playerElement.style.position = 'absolute';
+        playerElement.style.opacity = '0.3';  // More visible for debugging
     }
     
+    // Log player state to debug
     console.log("Player ready state:", player.getPlayerState());
 }
 
@@ -113,7 +125,6 @@ function onPlayerError(event) {
             break;
     }
     
-    console.error(errorMessage);
     alert(errorMessage + " Trying next one...");
     playNext();
 }
@@ -365,5 +376,5 @@ function init() {
     console.log("Initialization complete. Ready for YouTube API.");
 }
 
-// Call init function when DOM is ready
+// Call init function
 document.addEventListener('DOMContentLoaded', init);
