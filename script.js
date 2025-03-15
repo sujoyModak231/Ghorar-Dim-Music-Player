@@ -16,7 +16,7 @@ const durationDisplay = document.getElementById("duration");
 
 // Variables
 // Note: You should replace this with your own API key as YouTube might have disabled this one
-const apiKey = "AIzaSyDQzi9zsbEzvqYkfq_on4D-y043XTCzZBw"; 
+const apiKey = "AIzaSyCAvQnoqyvhvqMQiAkgojgmJ0VyDARYCmU"; 
 let playlist = [];
 let currentIndex = 0;
 let player;
