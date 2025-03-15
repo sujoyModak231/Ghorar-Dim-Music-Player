@@ -1,6 +1,6 @@
 # Ghorar-Dim-Music-Player
 
-Project Overview
+
 Ghorar Dim is a modern web-based music player that uses the YouTube Data API to search for and stream music. The application provides a sleek, intuitive user interface with features like search functionality, playlist management, playback controls, and a responsive design for optimal viewing on various devices.
 Technical Implementation
 Technologies Used
