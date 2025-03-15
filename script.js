@@ -15,7 +15,6 @@ const currentTimeDisplay = document.getElementById("current-time");
 const durationDisplay = document.getElementById("duration");
 
 // Variables
-// Note: You should replace this with your own API key as YouTube might have disabled this one
 const apiKey = "AIzaSyDQzi9zsbEzvqYkfq_on4D-y043XTCzZBw"; 
 let playlist = [];
 let currentIndex = 0;
@@ -48,7 +47,7 @@ function onYouTubeIframeAPIReady() {
     
     // Create the player
     player = new YT.Player('youtube-player', {
-        height: '180',  // Increased size so it's visible for debugging
+        height: '180',  
         width: '320',
         playerVars: {
             'playsinline': 1,
@@ -78,7 +77,7 @@ function onPlayerReady(event) {
         playerElement.style.height = '90px';
         playerElement.style.width = '160px';
         playerElement.style.position = 'absolute';
-        playerElement.style.opacity = '0.3';  // More visible for debugging
+        playerElement.style.opacity = '0.3';  
     }
     
     // Log player state to debug
@@ -324,7 +323,7 @@ function formatTime(seconds) {
 }
 
 function startProgressUpdate() {
-    stopProgressUpdate(); // Clear any existing interval
+    stopProgressUpdate(); 
     
     progressInterval = setInterval(() => {
         if (player && player.getCurrentTime && player.getDuration) {
