@@ -235,21 +235,27 @@ h2 {
     min-width: 40px;
 }
 
-/* Player Container  */
+/* Player Container */
 .player-container {
     position: fixed;
-    bottom: 120px;  
+    bottom: 120px;  /* Above the control bar */
     right: 10px;
     z-index: 900;
-    background-color: rgba(30, 30, 30, 0.5);
+    background-color: rgba(30, 30, 30, 0.7);  /* More visible */
     border-radius: 5px;
     padding: 5px;
-    opacity: 0.5;  
+    opacity: 0.7;  /* Make it more visible */
     transition: opacity 0.3s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .player-container:hover {
     opacity: 1;
+}
+
+#youtube-player {
+    width: 240px;
+    height: 135px;
 }
 
 /* Controls */
