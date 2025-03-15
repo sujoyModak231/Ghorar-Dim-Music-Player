@@ -55,12 +55,13 @@
         </div>
     </div>
     
-    <!-- Player container - improved visibility -->
+    <!-- Moved player container outside the control bar for better visibility -->
     <div class="player-container">
         <div id="youtube-player"></div>
     </div>
 
-    <!-- Load script.js after YouTube API script -->
+    <!-- Load YouTube API script first -->
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
 </html>
