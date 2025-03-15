@@ -25,7 +25,7 @@
         </div>
     </div>
 
-   
+    <!-- Fixed Control Bar -->
     <div class="control-bar">
         <div class="control-bar-top">
             <div class="song-info">
@@ -47,7 +47,7 @@
             </div>
         </div>
         
-    
+        <!-- Progress Bar -->
         <div class="progress-container">
             <span id="current-time">0:00</span>
             <input type="range" id="progress-bar" min="0" max="100" value="0">
@@ -55,13 +55,12 @@
         </div>
     </div>
     
-    
+    <!-- Player container - improved visibility -->
     <div class="player-container">
         <div id="youtube-player"></div>
     </div>
 
-   
-    <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- Load script.js after YouTube API script -->
     <script src="script.js"></script>
 </body>
 </html>
