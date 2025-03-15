@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghorar Dim - Music Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">Ghorar Dim</h1>
+            <p class="subtitle">Music Player</p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search for any songs..." />
+            <button id="search-btn"><i class="fas fa-search"></i> Search</button>
+        </div>
+
+        <div id="results-container">
+            <h2>Search Results</h2>
+            <div id="results" class="results"></div>
+        </div>
+    </div>
+
+    <!-- Fixed Control Bar -->
+    <div class="control-bar">
+        <div class="control-bar-top">
+            <div class="song-info">
+                <img id="current-thumbnail" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSIjMzMzIiAvPgogICAgPHRleHQgeD0iNTAiIHk9IjUwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIj5ObyBJbWFnZTwvdGV4dD4KPC9zdmc+" alt="Thumbnail">
+                <div class="song-details">
+                    <p id="current-title">Select a song to play</p>
+                    <p id="current-artist">Artist</p>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                <button id="play-btn"><i class="fas fa-play"></i></button>
+                <button id="next-btn"><i class="fas fa-step-forward"></i></button>
+                <div class="volume-control">
+                    <i class="fas fa-volume-up" id="volume-icon"></i>
+                    <input type="range" id="volume-slider" min="0" max="100" value="70">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <span id="current-time">0:00</span>
+            <input type="range" id="progress-bar" min="0" max="100" value="0">
+            <span id="duration">0:00</span>
+        </div>
+    </div>
+    
+    <!-- Moved player container outside the control bar for better visibility -->
+    <div class="player-container">
+        <div id="youtube-player"></div>
+    </div>
+
+    <!-- Load YouTube API script first -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
